@@ -42,3 +42,15 @@ def contact_view(request):
 
     context = {}
     return render(request, 'contact.html', context)        
+
+def register_view(request):
+
+    context = {}
+
+    return render(request, 'register.html', context)
+
+def login_view(request):
+
+    context = {}
+
+    return render(request, 'login.html', context)
