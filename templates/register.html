@@ -5,17 +5,13 @@
 <div class="container1">
     <div class="brand-logo__register"></div>
     <div class="brand-title">1OR1</div>
-    <div class="inputs">
-      <label>Username</label>
-      <input type="text" placeholder="example@test.com" />
-      <label>EMAIL</label>
-      <input type="email" placeholder="example@test.com" />
-      <label>Password</label>
-      <input type="password" placeholder="Min 6 charaters long" />
-      <label>Confirm</label>
-      <input type="password" placeholder="Confirm Password" />
+    <form class="inputs" method="POST" enctype="multipart/form-data">
+     
+      {% csrf_token %}
+      {{form.as_p}}
+
       <button type="submit">REGISTER</button>
-    </div>
+      </form>
     
   </div>
 

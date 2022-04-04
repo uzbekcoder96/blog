@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'core.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'my_blog',
+        'NAME': 'my_blogs',
         'HOST': 'localhost',
         'PORT': '5432',
         'USER': 'postgres',
@@ -133,8 +133,9 @@ STATICFILES_DIRS = [
 MEDIA_ROOT = 'media-files'
 MEDIA_URL = '/media/'
 
-
+AUTH_USER_MODEL = 'users.CustomUser'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+ 

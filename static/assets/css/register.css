@@ -16,7 +16,7 @@ body {
 
 .container {
   position: relative;
-  width: 350px;
+  width: 370px;
   height: 500px;
   border-radius: 20px;
   padding: 40px;
@@ -27,8 +27,8 @@ body {
 
 .container1 {
   position: relative;
-  width: 350px;
-  height: 650px;
+  width: 650px;
+  height: 950px;
   border-radius: 20px;
   padding: 40px;
   box-sizing: border-box;
@@ -62,7 +62,7 @@ body {
   margin-top: 10px;
   font-weight: 900;
   font-size: 1.8rem;
-  color: #1DA1F2;
+  color: #F48C46;
   letter-spacing: 1px;
 }
 
@@ -105,7 +105,7 @@ input {
 button {
   color: white;
   margin-top: 20px;
-  background: #1DA1F2;
+  background: #F48C46;
   height: 40px;
   border-radius: 20px;
   cursor: pointer;
