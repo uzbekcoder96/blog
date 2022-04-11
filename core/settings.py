@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'core.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'my_blogs',
+        'NAME': 'blog',
         'HOST': 'localhost',
         'PORT': '5432',
         'USER': 'postgres',
@@ -133,7 +133,27 @@ STATICFILES_DIRS = [
 MEDIA_ROOT = 'media-files'
 MEDIA_URL = '/media/'
 
+
+
 AUTH_USER_MODEL = 'users.CustomUser'
+# LOGIN_URL = '/users/login'
+# LOGIN_REDIRECT_URL = ''
+LOGOUT_REDIRECT_URL = '/users/login'
+
+
+
+
+# Email configurations
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp.yandex.ru'# 'smtp.gmail.com'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_SSL = True 
+EMAIL_USE_TSL = False
+EMAIL_PORT = 465
+EMAIL_HOST_USER = 'sharopov0996@gmail.com'
+# EMAIL_HOST_PASSWORD = 'bxdljelxnsdogfqs'  # app password
+EMAIL_HOST_PASSWORD = 'Muhricha96'  # common password
+DEFAULT_FROM_EMAIL = 'sharopov0996@gmail.com'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 

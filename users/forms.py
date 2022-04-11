@@ -1,16 +1,14 @@
 from django import forms
 from users.models import CustomUser
-
-class RegisterForm(forms.Form):
-    username = forms.CharField(max_length=120, required=True, label='Username')
-    email = forms.EmailField(max_length=120, required=True, label='Elektron Pochta')
+from django.forms.widgets import PasswordInput
+class RegisterForm(forms.ModelForm):
     password = forms.CharField(max_length=100, label='Parol',
                         widget=forms.PasswordInput())
     password_confirmation = forms.CharField(max_length=100, label='Parolni tasdiqlash',
                         widget=forms.PasswordInput)
     class Meta:
         model = CustomUser
-        fileds = ['username', 'email', 'password', 'password_confirmation']
+        fields = ['username', 'email', 'password']
     
         labels = {
                 'first_name': 'Ism',
@@ -47,3 +45,25 @@ class RegisterForm(forms.Form):
             raise forms.ValidationError('Tasdiqlash paroli notogri')
 
         return confirm_password
+
+
+
+class LoginForm(forms.Form):
+    username = forms.CharField(max_length=100,required=True) # error_messages={"required": "", "invalid": ""}
+    password = forms.CharField(required=True, widget=PasswordInput)
+
+    def clean_username(self):
+        username = self.cleaned_data['username']
+        if not CustomUser.objects.filter(username=username).exists():
+            raise forms.ValidationError('Ushbu username tizimda ro\'yxatdan o\'tkazilmagan.')
+        return username
+    
+    def clean_password(self):
+        username = self.cleaned_data.get('username')
+        password = self.cleaned_data['password']
+        if username:
+            user = CustomUser.objects.filter(username=username).first()
+            if user:
+                if not user.check_password(password):
+                    raise forms.ValidationError('Parol notog\'ri kiritildi.')
+        return password
