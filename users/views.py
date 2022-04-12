@@ -76,7 +76,7 @@ def verify_email_view(request, user_id, token):
         user.save()
         return render(request, "login.html", {})
     
-    return render(request, "verify-fail.html", {})
+    return render(request, "success.html", {})
 
 class ResetPasswordView(SuccessMessageMixin, PasswordResetView):
     template_name = 'password_reset.html'

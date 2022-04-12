@@ -10,10 +10,13 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" 
   integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" 
   crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anek+Odia:wght@500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/static/assets/css/register.css">
   <title>Login</title>
 </head>
-<body class="bg-light">
+<body class="bg-light" style="font-family: 'Anek Odia', sans-serif;">
     {% if email_sent == True %}
     <div class="alert alert-success" role="alert">
       Iltimos emailingizni tekshirib accauntingizni faollashtiring
@@ -66,7 +69,7 @@
                                         {% endif %}
                                         
                                         <div class="form-text text-end">
-                                            <a href="{% url 'users:password_reset' %}" style="text-decoration:none;">Parolni unutdingizmi?</a>
+                                            <a href="{% url 'users:password_reset' %}" style="text-decoration:none;" class="fw-bold">Parolni unutdingizmi?</a>
                                         </div>
                                     </div>    
                                 </div>
@@ -75,7 +78,7 @@
                             {% csrf_token %}
                             <div class="text-center">
                                 <button type='submit' class="btn btn-warning text-white px-4 mb-2" >Kirish</button>
-                                <p>Yangimisiz? <a href="{% url 'users:register' %}" style="text-decoration:none;" >Ro'yxatdan o'tish</a></p>
+                                <p class="text-danger">Yangimisiz? <a href="{% url 'users:register' %}" style="text-decoration:none;" class="fw-bold">Ro'yxatdan o'tish</a></p>
                             </div>
                         </form>
                     </div>
