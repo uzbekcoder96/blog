@@ -4,7 +4,8 @@ from django.conf import settings
 from django.contrib.auth import login, logout
 from django.contrib.auth import get_user_model
 from .utils import generate_token
-from users.forms import RegisterForm, LoginForm
+from .models import CustomUser
+from users.forms import RegisterForm, LoginForm, ProfileForm
 from django.contrib.auth.decorators import login_required
 USER = get_user_model()
 # from django.contrib.auth.forms import UserCreationForm
@@ -43,6 +44,7 @@ def register_view(request):
         
     return render(request, 'register.html', {'form': form})
    
+
 
 def login_view(request):
 
@@ -87,3 +89,9 @@ class ResetPasswordView(SuccessMessageMixin, PasswordResetView):
                       " If you don't receive an email, " \
                       "please make sure you've entered the address you registered with, and check your spam folder."
     success_url = reverse_lazy('users:login')
+
+
+def test(request):
+    form = ProfileForm
+    qs = CustomUser.objects.all()
+    return render(request, 'test.html', {'qs':qs})    

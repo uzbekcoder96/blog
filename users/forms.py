@@ -64,3 +64,9 @@ class LoginForm(forms.Form):
                 if not user.check_password(password):
                     raise forms.ValidationError('Parol notog\'ri kiritildi.')
         return password
+
+class ProfileForm(forms.ModelForm):
+    
+    class Meta:
+        model = CustomUser
+        fields = ['username', 'first_name', 'last_name', 'email', 'avatar']
