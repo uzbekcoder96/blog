@@ -8,12 +8,9 @@ class RegisterForm(forms.ModelForm):
                         widget=forms.PasswordInput)
     class Meta:
         model = CustomUser
-        fields = ['username', 'email', 'password']
+        fields = ['username', 'email', 'password', 'avatar']
     
-        labels = {
-                'first_name': 'Ism',
-                'last_name': 'Familiya'
-            }
+        
 
     def clean_username(self):
         username = self.cleaned_data['username']

@@ -10,9 +10,10 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" 
   integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" 
   crossorigin="anonymous">
+  <link rel="stylesheet" href="/static/assets/css/register.css">
   <title>Login</title>
 </head>
-<body>
+<body class="bg-light">
     {% if email_sent == True %}
     <div class="alert alert-success" role="alert">
       Iltimos emailingizni tekshirib accauntingizni faollashtiring
@@ -25,21 +26,21 @@
     {% endif%}
     <div class="container">
     
-        <div class="row mt-4 pt-4">
-            <div class="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-12">
-                <div class="card text-center">
-                    <div class="card-body">
+        <div class="row mt-4 pt-4" style="margin-top: 6rem;">
+            <div class="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-12 ">
+                <div class="card text-center shadow-lg p-3 mb-5 bg-body rounded border border-warning">
+                    <div class="card-body ">
                         <img src="/static/images/logo.png" class="mb-1" width="50px"/>
-                        <h5 class="card-title">Kirish</h5>
+                        <h5 class="card-title text-danger text-uppercase fw-bold">Kirish</h5>
                         
                         <form action='' method='POST'>
                             
                             <div class="mb-3 text-start">
                                 <div class="row mb-2">
                                     <div class="col-12">
-                                        <label for="username" class="form-label">username</label>
-                                        <input type="text" id="username" name="username" placeholder="John"
-                                            class="form-control {% if form.username.errors %}is-invalid{% endif %}" 
+                                        <label for="username" class="form-label text-danger text-uppercase fw-bold">Taxallus</label>
+                                        <input type="text" id="username" name="username"  placeholder="John"
+                                            class="form-control none_shadow {% if form.username.errors %}is-invalid{% endif %} shadow" 
                                             value="{{form.username.value|default:''}}" >
                                         
                                         {% if form.username.errors %}
@@ -53,9 +54,9 @@
                                 </div>
                                 <div class="row mb-2">
                                     <div class="col-12">
-                                        <label for="password" class="form-label">Parol</label>
+                                        <label for="password" class="form-label text-danger text-uppercase fw-bold">Parol</label>
                                         <input type="password" name="password" placeholder="********"
-                                            class="form-control {% if form.password.errors %}is-invalid{% endif %}" 
+                                            class="form-control none_shadow {% if form.password.errors %}is-invalid{% endif %} shadow" 
                                             id="password" value="{{form.password.value|default:''}}">
                                         {% if form.password.errors %}
                                             <div class="invalid-feedback">
@@ -65,7 +66,7 @@
                                         {% endif %}
                                         
                                         <div class="form-text text-end">
-                                            <a href="" style="text-decoration:none;">Parolni unutdingizmi?</a>
+                                            <a href="{% url 'users:password_reset' %}" style="text-decoration:none;">Parolni unutdingizmi?</a>
                                         </div>
                                     </div>    
                                 </div>
@@ -73,7 +74,7 @@
             
                             {% csrf_token %}
                             <div class="text-center">
-                                <button type='submit' class="btn btn-warning text-white px-4 mb-2">Kirish</button>
+                                <button type='submit' class="btn btn-warning text-white px-4 mb-2" >Kirish</button>
                                 <p>Yangimisiz? <a href="{% url 'users:register' %}" style="text-decoration:none;" >Ro'yxatdan o'tish</a></p>
                             </div>
                         </form>

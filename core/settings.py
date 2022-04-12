@@ -85,7 +85,7 @@ DATABASES = {
         'HOST': 'localhost',
         'PORT': '5432',
         'USER': 'postgres',
-        'PASSWORD': 'admin' 
+        'PASSWORD': 'Muhricha96' 
     }
 }
 
@@ -159,3 +159,7 @@ DEFAULT_FROM_EMAIL = 'sharopov0996@gmail.com'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
  
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.core.context_processors.request',
+)

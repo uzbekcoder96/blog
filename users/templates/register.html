@@ -13,47 +13,48 @@
    rel="stylesheet" 
    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
   crossorigin="anonymous">
+  <link rel="stylesheet" href="/static/assets/css/register.css">
   <title>Register</title>
 </head>
-<body>
+<body class="bg-light">
   <div class="container">
     
     <div class="row mt-4 pt-5">
         <div class="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-12">
-            <div class="card text-center">
-                <div class="card-body">
+            <div class="card text-center shadow-lg p-3 mb-5 bg-body rounded border border-warning">
+                <div class="card-body ">
                     <img src="/static/images/logo.png" class="mb-1" width="50px"/>
-                    <h5 class="card-title">Ro'yxatdan o'tish</h5>
+                    <h5 class="card-title fw-bold text-danger" >Ro'yxatdan o'tish</h5>
                     
                     <form action='' method='POST'>
                         
                         <div class="mb-3 text-start">
                             <div class="row mb-2">
                                 <div class="col-12">
-                                    <label for="first_name" class="form-label">Username</label>
+                                    <label for="first_name" class="form-label text-danger text-uppercase fw-bold">Taxallus</label>
                                     <input type="text"  id="username" name="username" placeholder="name@example.com" 
-                                        class="form-control {% if form.username.errors %}is-invalid{% endif %}"
+                                        class="form-control none_shadow {% if form.username.errors %}is-invalid{% endif %} shadow"
                                         value="{{form.first_name.value|default:''}}"
                                         {% comment %} {% if form.first_name.value %}value="{{form.username.value}}"{% else %}value=""{% endif %} {% endcomment %}
                                     />
                                     {% if form.username.errors %}
-                                        <div class="invalid-feedback">{{form.username.errors}}</div>
+                                        <div class="invalid-feedback ">{{form.username.errors}}</div>
                                     {% endif %}
                                 </div>
                             </div>
                             <div class="row mb-2">
                                 <div class="col-12">
-                                    <label for="last_name" class="form-label">Familiyangiz</label>
-                                    <input type="text" class="form-control" id="last_name" 
+                                    <label for="last_name" class="form-label text-danger text-uppercase fw-bold">Familiyangiz</label>
+                                    <input type="text" class="form-control none_shadow shadow" id="last_name" 
                                         name="last_name" placeholder="name@example.com" 
                                         value="{{form.last_name.value|default:''}}"/>
                                 </div>
                             </div>
                             <div class="row mb-2">
                                 <div class="col-12">
-                                    <label for="email" class="form-label">Email address</label>
+                                    <label for="email" class="form-label text-danger text-uppercase fw-bold" >Email address</label>
                                     <input type="email" id="email" name="email" placeholder="name@example.com"
-                                        class="form-control {% if form.email.errors %}is-invalid{% endif %}" 
+                                        class="form-control none_shadow {% if form.email.errors %}is-invalid{% endif %} shadow" 
                                         value="{{form.email.value|default:''}}" >
                                     
                                     {% if form.email.errors %}
@@ -67,9 +68,9 @@
                             </div>
                             <div class="row mb-2">
                                 <div class="col-12">
-                                    <label for="password" class="form-label">Parol</label>
+                                    <label for="password" class="form-label text-danger text-uppercase fw-bold ">Parol</label>
                                     <input type="password" name="password" placeholder="********"
-                                        class="form-control {% if form.password.errors %}is-invalid{% endif %}" 
+                                        class="form-control none_shadow {% if form.password.errors %}is-invalid{% endif %} shadow" 
                                         
                                         id="password" value="{{form.password.value|default:''}}">
                                     {% if form.password.errors %}
@@ -79,15 +80,15 @@
                                             {% endfor %}
                                         </div>
                                     {% else %}
-                                        <div class="form-text">Parol kamida 7 ta belgidan iborat bo'lishi lozim.</div>
+                                        <div class="form-text text-info ">Parol kamida 7 ta belgidan iborat bo'lishi lozim.</div>
                                     {% endif %}
                                 </div>    
                             </div>
                             <div class="row mb-2">
                                 <div class="col-12">
-                                    <label for="password_confirmation" class="form-label">Parolni tasdiqlash</label>
+                                    <label for="password_confirmation" class="form-label text-danger text-uppercase fw-bold">Parolni tasdiqlash</label>
                                     <input type="password" name="password_confirmation" placeholder="********"
-                                        class="form-control {% if form.password_confirmation.errors %}is-invalid{% endif %}" 
+                                        class="form-control none_shadow {% if form.password_confirmation.errors %}is-invalid{% endif %} shadow" 
                                         value="{{form.password_confirmation.value|default:''}}" id="password_confirmation"/>
                                     
                                     {% if form.password_confirmation.errors %}
