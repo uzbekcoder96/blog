@@ -1,12 +1,16 @@
 from django.shortcuts import render
 from .models import Post
+from users.models import CustomUser
 from django.contrib.auth.decorators import login_required
 
 @login_required(login_url='users/login/')
 def home_page_view(request):
     posts = Post.objects.all()
-
-    context = {'posts':posts}
+    users= CustomUser.objects.all()
+    context = {
+        'posts': posts, 
+        'users': users
+    }
     return render(request, 'base.html', context)
 
 
