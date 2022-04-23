@@ -29,10 +29,10 @@ def register_view(request):
             user = USER.objects.create_user(**fields)
             try:
                 email_sent = user.email_user(
-                    subject="Verify your email on Havola.uz",
-                    message="Please verify your email using this" +
+                    subject="BlogUz activatsiya",
+                    message="Iltimos accauntingizni activ qilish uchun ushbu " +
                             f"link http://127.0.0.1:8000/users/{user.id}/verify/{fields['token_for_activation']}" +
-                            " to activate your account")
+                            " linkka bosing")
                            
             except Exception as e:
                 print(e)
@@ -62,11 +62,7 @@ def login_view(request):
     return render(request, "login.html", {'form': form})
 
 def logout_view(request):
-    print(request.user) # AnonymousUser, <User: Admin>
-    if request.user.is_authenticated:
-        print('login qilgan')
-    else:
-        print('nomalum foydalanuvchi')
+   
     logout(request)
     return redirect(settings.LOGOUT_REDIRECT_URL)
 
@@ -84,14 +80,9 @@ class ResetPasswordView(SuccessMessageMixin, PasswordResetView):
     template_name = 'password_reset.html'
     email_template_name = 'password_reset_email.html'
     # subject_template_name = 'password_reset_subject.txt'
-    success_message = "We've emailed you instructions for setting your password, " \
-                      "if an account exists with the email you entered. You should receive them shortly." \
-                      " If you don't receive an email, " \
-                      "please make sure you've entered the address you registered with, and check your spam folder."
+    success_message = "Passwordni o'zgartirish uchun kiritilgan emailga xxabar jo'natdik iltimos tekshirib ko'ring " \
+                      "Agar ro'yxatdan o'tgan to'g'ri email kiritgan bo'lsangiz emailingizga xabar yuborildi" \
+                      "Iltimos ro'yxatdan o'tgan emailingizni kiritganingizga amin bo'ling Agar bormagan bo'lsa spamni tekshirib ko'ring"
     success_url = reverse_lazy('users:login')
 
 
-def test(request):
-    form = ProfileForm
-    qs = CustomUser.objects.all()
-    return render(request, 'test.html', {'qs':qs})    

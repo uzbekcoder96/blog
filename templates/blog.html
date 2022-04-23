@@ -21,27 +21,7 @@
     
     <!-- Banner Ends Here -->
 
-    <section class="call-to-action">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="main-content">
-              <div class="row">
-                <div class="col-lg-8">
-                  <span>Stand Blog HTML5 Template</span>
-                  <h4>Creative HTML Template For Bloggers!</h4>
-                </div>
-                <div class="col-lg-4">
-                  <div class="main-button">
-                    <a href="https://templatemo.com/tm-551-stand-blog" target="_parent">Download Now!</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    
 
 
     <section class="blog-posts grid-system">
@@ -58,20 +38,20 @@
                     </div>
                     <div class="down-content">
                       <span>{{post.title}}</span>
-                      <a href="{% url 'blog:post_detail' post.id%}"><h4>Donec tincidunt leo</h4></a>
+                      <a href="{% url 'blog:post_detail' post.id%}"><h4>{{post.title}}</h4></a>
                       <ul class="post-info">
                         <li><a href="#">{{post.author}}</a></li>
-                        <li><a href="#">May 31, 2020</a></li>
+                        <li><a href="#">{{post.created_at}}</a></li>
                         <li><a href="#">12 Comments</a></li>
                       </ul>
-                      <p>Nullam nibh mi, tincidunt sed sapien ut, rutrum hendrerit velit. Integer auctor a mauris sit amet eleifend.</p>
+                      <p >{{post.content|truncatechars:30}}</p>
                       <div class="post-options">
                         <div class="row">
                           <div class="col-lg-12">
                             <ul class="post-tags">
                               <li><i class="fa fa-tags"></i></li>
-                              <li><a href="#">Best Templates</a>,</li>
-                              <li><a href="#">TemplateMo</a></li>
+                              <li><a href="#"></a>,</li>
+                              <li><a href="#"></a></li>
                             </ul>
                           </div>
                         </div>
